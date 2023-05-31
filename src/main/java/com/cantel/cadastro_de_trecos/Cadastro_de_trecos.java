@@ -1,23 +1,22 @@
 package com.cantel.cadastro_de_trecos;
 
-import com.cantel.cadastro_de_trecos.crud.Create;
-import com.cantel.cadastro_de_trecos.crud.Delete;
-import com.cantel.cadastro_de_trecos.setup.AppSetup;
-import com.cantel.cadastro_de_trecos.crud.Read;
-import com.cantel.cadastro_de_trecos.crud.Update;
-import java.util.Scanner;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.cantelcadastro_de_trecos.setup.AppSetup;
+import net.luferat.cadastro_de_trecos.crud.Read;
+import net.luferat.cadastro_de_trecos.crud.Create;
+import net.luferat.cadastro_de_trecos.crud.Delete;
+import net.luferat.cadastro_de_trecos.crud.Search;
+import net.luferat.cadastro_de_trecos.crud.Update;
 
-// criando uma classe 'cadatro de trecos'
 public class Cadastro_de_trecos extends AppSetup {
 
-// static : estático / void: diz o tipo ( não retorna nada ) / main: classe principal
     public static void main(String[] args) {
         clearScreen();
         mainMenu();
-
     }
 
-   // Método que exibe o menu principal.
+    // Método que exibe o menu principal.
     public static void mainMenu() {
 
         System.out.println(appName + "\n" + appSep);
@@ -27,6 +26,7 @@ public class Cadastro_de_trecos extends AppSetup {
         System.out.println("\t[3] Novo");
         System.out.println("\t[4] Editar");
         System.out.println("\t[5] Apagar");
+        System.out.println("\t[6] Procurar");
         System.out.println("\t[0] Sair");
         System.out.println(appSep);
         System.out.print("Opção: ");
@@ -59,6 +59,10 @@ public class Cadastro_de_trecos extends AppSetup {
                 clearScreen();
                 Delete.delete();
                 break;
+            case "6":
+                clearScreen();
+                Search.search();
+                break;
             default:
                 clearScreen();
                 System.out.println("Oooops! Opção inválida!\n");
@@ -70,7 +74,7 @@ public class Cadastro_de_trecos extends AppSetup {
     public static void exitProgram() {
         scanner.close();
         clearScreen();
-        System.out.println("\n\n HASTA LA VISTA!\n\n");
+        System.out.println("\n\nFui!\n\n");
         System.exit(0);
     }
 

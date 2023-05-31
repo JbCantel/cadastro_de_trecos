@@ -1,11 +1,10 @@
-package com.cantel.cadastro_de_trecos.crud;
+package net.luferat.cadastro_de_trecos.crud;
 
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.clearScreen;
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.exitProgram;
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.mainMenu;
-import com.cantel.cadastro_de_trecos.db.DbConnection;
-import com.cantel.cadastro_de_trecos.setup.AppSetup;
+import java.sql.SQLException;
 import java.util.Scanner;
+import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.*;
+import com.cantel.cadastro_de_trecos.db.DbConnection;
+import com.cantelcadastro_de_trecos.setup.AppSetup;
 
 public class Create extends AppSetup {
 
@@ -18,7 +17,7 @@ public class Create extends AppSetup {
         System.out.println(appName + "\n" + appSep);
         System.out.println("Cadastrar registro");
         System.out.println(appSep + "\n");
-
+        
         try {
 
             // Instância de Scanner para obter dados do teclado.
@@ -88,7 +87,7 @@ public class Create extends AppSetup {
                     create();
             }
 
-        } catch (Exception error) {
+        } catch (SQLException error) {
 
             // Tratamento de erros.
             System.out.println("Oooops! " + error.getMessage());
@@ -96,5 +95,4 @@ public class Create extends AppSetup {
         }
 
     }
-
 }

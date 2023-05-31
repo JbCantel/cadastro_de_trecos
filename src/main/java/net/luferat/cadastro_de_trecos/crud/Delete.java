@@ -1,20 +1,18 @@
-package com.cantel.cadastro_de_trecos.crud;
+package net.luferat.cadastro_de_trecos.crud;
 
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.clearScreen;
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.exitProgram;
-import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.mainMenu;
-import static com.cantel.cadastro_de_trecos.crud.Read.read;
-import com.cantel.cadastro_de_trecos.db.DbConnection;
-import com.cantel.cadastro_de_trecos.setup.AppSetup;
-import java.lang.reflect.Array;
 import java.sql.SQLException;
+import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.*;
+import static com.cantel.cadastro_de_trecos.Tools.showRes;
+import com.cantel.cadastro_de_trecos.db.DbConnection;
+import com.cantelcadastro_de_trecos.setup.AppSetup;
 
 public class Delete extends AppSetup {
 
     public static void delete() {
+
         // Reserva recursos para o banco de dados.
         int id = 0;
-        String sql = "";
+        String sql;
 
         // Cabeçalho da seção.
         System.out.println(appName + "\n" + appSep);
@@ -25,14 +23,13 @@ public class Delete extends AppSetup {
 
             // Recebe o Id do teclado.
             System.out.print("Digite o ID ou [0] para retornar: ");
-            // Recebe o id pelo teclado
             id = Integer.parseInt(scanner.next());
-            // Testa o id.
             if (id == 0) {
                 clearScreen();
                 mainMenu();
             }
         } catch (NumberFormatException e) {
+
             // Quando opção é inválida.
             clearScreen();
             System.out.println("Oooops! Opção inválida!\n");
@@ -40,8 +37,10 @@ public class Delete extends AppSetup {
         }
 
         try {
+            
+            System.out.println(" ");
 
-            // Verifica se o registro existe no banco de dados.
+            // Verifica se o registro existe.
             sql = "SELECT * FROM " + DBTABLE + " WHERE id = ?";
             conn = DbConnection.dbConnect();
             pstm = conn.prepareStatement(sql);
@@ -50,12 +49,8 @@ public class Delete extends AppSetup {
 
             if (res.next()) {
 
-                // Se tem registro, exibe na view.
-                System.out.println(
-                        "\nID: " + res.getString("id") + "\n"
-                        + "  Nome: " + res.getString("name") + "\n"
-                        + "  Descrição: " + res.getString("description") + "\n"
-                );
+                // Se encontrou o registro, exibe na view.
+                showRes(res);
 
                 System.out.print("Tem certeza que deseja apagar o registro? [s/N] ");
                 if (scanner.next().trim().toLowerCase().equals("s")) {
@@ -65,11 +60,12 @@ public class Delete extends AppSetup {
                     pstm.setInt(1, id);
                     if (pstm.executeUpdate() == 1) {
                         // Registro apagado.
-                        System.out.println("\nRegistro apagado");
+                        System.out.println("\nRegistro apagado!");
+                    } else {
+                        System.out.println("Oooops! Algo deu errado!");
                     }
-
                 } else {
-                    System.out.println("\nNada aconteceu!!");
+                    System.out.println("\nNada aconteceu!");
                 }
 
             } else {
