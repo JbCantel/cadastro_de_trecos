@@ -1,9 +1,9 @@
-package COM.CANTEL.cadastro_de_trecos.crud;
+package com.cantel.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
-import com.cantelcadastro_de_trecos.setup.AppSetup;
+import com.cantel.cadastro_de_trecos.setup.AppSetup;
 import com.cantel.cadastro_de_trecos.db.DbConnection;
-import static com.cantelcadastro_de_trecos.setup.AppSetup.*;
+import static com.cantel.cadastro_de_trecos.setup.AppSetup.*;
 import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.*;
 import static com.cantel.cadastro_de_trecos.Tools.showRes;
 

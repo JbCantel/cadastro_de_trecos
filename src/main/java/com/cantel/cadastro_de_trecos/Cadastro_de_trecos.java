@@ -1,11 +1,11 @@
 package com.cantel.cadastro_de_trecos;
 
-import com.cantelcadastro_de_trecos.setup.AppSetup;
-import COM.CANTEL.cadastro_de_trecos.crud.Read;
-import COM.CANTEL.cadastro_de_trecos.crud.Create;
-import COM.CANTEL.cadastro_de_trecos.crud.Delete;
-import COM.CANTEL.cadastro_de_trecos.crud.Search;
-import COM.CANTEL.cadastro_de_trecos.crud.Update;
+import com.cantel.cadastro_de_trecos.setup.AppSetup;
+import com.cantel.cadastro_de_trecos.crud.Read;
+import com.cantel.cadastro_de_trecos.crud.Create;
+import com.cantel.cadastro_de_trecos.crud.Delete;
+import com.cantel.cadastro_de_trecos.crud.Search;
+import com.cantel.cadastro_de_trecos.crud.Update;
 import com.cantel.cadastro_de_trecos.crud.ToggleStatus;
 
 public class Cadastro_de_trecos extends AppSetup {

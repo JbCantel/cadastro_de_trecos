@@ -7,3 +7,4 @@ com\cantel\cadastro_de_trecos\db\DbConnection.class
 com\cantel\cadastro_de_trecos\Tools.class
 com\cantel\cadastro_de_trecos\crud\Delete.class
 com\cantel\cadastro_de_trecos\crud\Read.class
+com\cantel\cadastro_de_trecos\crud\ToggleStatus.class

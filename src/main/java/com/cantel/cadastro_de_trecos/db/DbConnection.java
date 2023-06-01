@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.cantelcadastro_de_trecos.setup.AppSetup;
+import com.cantel.cadastro_de_trecos.setup.AppSetup;
 
 public class DbConnection extends AppSetup {
 

@@ -6,7 +6,7 @@ import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.exitProgram;
 import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.mainMenu;
 import static com.cantel.cadastro_de_trecos.Tools.showRes;
 import com.cantel.cadastro_de_trecos.db.DbConnection;
-import com.cantelcadastro_de_trecos.setup.AppSetup;
+import com.cantel.cadastro_de_trecos.setup.AppSetup;
 import java.sql.SQLException;
 
 public class ToggleStatus extends AppSetup {

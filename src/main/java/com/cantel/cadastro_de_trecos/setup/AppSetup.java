@@ -1,4 +1,4 @@
-package com.cantelcadastro_de_trecos.setup;
+package com.cantel.cadastro_de_trecos.setup;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
