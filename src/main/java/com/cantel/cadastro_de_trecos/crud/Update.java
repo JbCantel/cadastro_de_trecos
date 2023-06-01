@@ -1,4 +1,4 @@
-package net.luferat.cadastro_de_trecos.crud;
+package COM.CANTEL.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -62,6 +62,9 @@ public class Update extends AppSetup {
 
                 System.out.print("\tDescrição: ");
                 String itemDescription = keyboard.nextLine().trim();
+                
+                System.out.print("\tLocalização: ");
+                String itemlocalizacao = keyboard.nextLine().trim();
 
                 // Pede confirmação.
                 System.out.print("\nOs dados acima estão corretos? [s/N] ");
@@ -71,7 +74,7 @@ public class Update extends AppSetup {
                     String saveDescription = (itemDescription.equals("")) ? res.getString("description") : itemDescription;
 
                     // Atualiza registro no banco de dados.
-                    sql = "UPDATE " + DBTABLE + " SET name = ?, description = ? WHERE id = ?";
+                    sql = "UPDATE " + DBTABLE + " SET name = ?, description = ?, localization = ? WHERE id = ?";
                     pstm = conn.prepareStatement(sql);
                     pstm.setString(1, saveName);
                     pstm.setString(2, saveDescription);

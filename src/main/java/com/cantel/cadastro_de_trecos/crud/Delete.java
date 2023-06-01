@@ -1,4 +1,4 @@
-package net.luferat.cadastro_de_trecos.crud;
+package COM.CANTEL.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
 import static com.cantel.cadastro_de_trecos.Cadastro_de_trecos.*;
@@ -37,11 +37,11 @@ public class Delete extends AppSetup {
         }
 
         try {
-            
+
             System.out.println(" ");
 
             // Verifica se o registro existe.
-            sql = "SELECT * FROM " + DBTABLE + " WHERE id = ?";
+            sql = "SELECT * FROM " + DBTABLE + " WHERE id = ? AND status = '2' ";
             conn = DbConnection.dbConnect();
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
@@ -55,7 +55,8 @@ public class Delete extends AppSetup {
                 System.out.print("Tem certeza que deseja apagar o registro? [s/N] ");
                 if (scanner.next().trim().toLowerCase().equals("s")) {
 
-                    sql = "DELETE FROM " + DBTABLE + " WHERE id = ?";
+                   // Altera o status de "ativo" para "deletado" usando o status = 0
+                    sql = "UPDATE " + DBTABLE + " SET status = '0' WHERE id = ? AND status = '2' ";
                     pstm = conn.prepareStatement(sql);
                     pstm.setInt(1, id);
                     if (pstm.executeUpdate() == 1) {

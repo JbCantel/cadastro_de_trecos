@@ -1,4 +1,4 @@
-package net.luferat.cadastro_de_trecos.crud;
+package COM.CANTEL.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
 import com.cantelcadastro_de_trecos.setup.AppSetup;
@@ -23,7 +23,7 @@ public class Read extends AppSetup {
         try {
 
             // Consulta o banco de dados.
-            sql = "SELECT * FROM " + DBTABLE;
+             sql = "SELECT * FROM " + DBTABLE + " WHERE status = '1' OR status = '2' ORDER BY nome DESC ";
             conn = DbConnection.dbConnect();
             stmt = conn.createStatement();
             res = stmt.executeQuery(sql);
@@ -110,7 +110,7 @@ public class Read extends AppSetup {
             System.out.println(" ");
 
             // Faz consulta no banco de dados usando "preparedStatement".
-            sql = "SELECT * FROM " + DBTABLE + " WHERE id = ?";
+           sql = "SELECT * FROM " + DBTABLE + " WHERE status = '1' OR status = '2' ORDER BY nome DESC ";
             conn = DbConnection.dbConnect();
             pstm = conn.prepareStatement(sql);
 

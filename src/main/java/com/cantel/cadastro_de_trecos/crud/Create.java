@@ -1,4 +1,4 @@
-package net.luferat.cadastro_de_trecos.crud;
+package COM.CANTEL.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -25,22 +25,29 @@ public class Create extends AppSetup {
 
             // Obtém o nome.
             System.out.print("\tNome: ");
-            String itemName = keyboard.nextLine().trim();
+            String itemNome = keyboard.nextLine().trim();
 
             // Obtém a descrição.
             System.out.print("\tDescrição: ");
-            String itemDescription = keyboard.nextLine().trim();
+            String itemDescrição = keyboard.nextLine().trim();
+          
+             // Obtém a localização.
+            System.out.print("\tLocalização: ");
+            String itemlocalização = keyboard.nextLine().trim();
 
             // Pede confirmação.
             System.out.print("\nOs dados acima estão corretos? [s/N] ");
             if (keyboard.next().trim().toLowerCase().equals("s")) {
 
                 // Insere os dados na tabela usando PreparetedStatement.
-                sql = "INSERT INTO " + DBTABLE + " (name, description) VALUES (?, ?)";
+                sql = "INSERT INTO " + DBTABLE + " (nome, descricao, localizacao)VALUES (?, ?, ?)";
                 conn = DbConnection.dbConnect();
                 pstm = conn.prepareStatement(sql);
-                pstm.setString(1, itemName);
-                pstm.setString(2, itemDescription);
+                pstm.setString(1, itemNome);
+                pstm.setString(2, itemDescrição);
+                pstm.setString(3, itemlocalização);
+                
+                
 
                 if (pstm.executeUpdate() == 1) {
 

@@ -1,4 +1,4 @@
-package net.luferat.cadastro_de_trecos.crud;
+package COM.CANTEL.cadastro_de_trecos.crud;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -35,11 +35,12 @@ public class Search extends AppSetup {
             // Se digitou uma string.
             try {
 
-                sql = "SELECT * FROM " + DBTABLE + " WHERE name LIKE ? OR description LIKE ?";
+                sql = "SELECT * FROM " + DBTABLE + " WHERE nome LIKE ? OR descricao LIKE ? OR descricao LIKE ? ORDER BY nome DESC";
                 conn = DbConnection.dbConnect();
                 pstm = conn.prepareStatement(sql);
                 pstm.setString(1, "%" + searchString + "%");
                 pstm.setString(2, "%" + searchString + "%");
+                 pstm.setString(3, "%" + searchString + "%");
                 res = pstm.executeQuery();
                 if (res.next()) {
 
