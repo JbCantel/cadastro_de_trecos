@@ -111,12 +111,11 @@ public class Read extends AppSetup {
 
             // Faz consulta no banco de dados usando "preparedStatement".
            sql = "SELECT * FROM " + DBTABLE + " WHERE status = '1' OR status = '2' ORDER BY nome DESC ";
+            
             conn = DbConnection.dbConnect();
             pstm = conn.prepareStatement(sql);
 
-            // Passa o Id para a query.
-            pstm.setInt(1, id);
-
+           
             // Executa a query.
             res = pstm.executeQuery();
 

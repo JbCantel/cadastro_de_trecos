@@ -64,21 +64,23 @@ public class Update extends AppSetup {
                 String itemDescription = keyboard.nextLine().trim();
                 
                 System.out.print("\tLocalização: ");
-                String itemlocalizacao = keyboard.nextLine().trim();
+                String itemLocalization = keyboard.nextLine().trim();
 
                 // Pede confirmação.
                 System.out.print("\nOs dados acima estão corretos? [s/N] ");
                 if (keyboard.next().trim().toLowerCase().equals("s")) {
 
-                    String saveName = (itemName.equals("")) ? res.getString("name") : itemName;
-                    String saveDescription = (itemDescription.equals("")) ? res.getString("description") : itemDescription;
+                    String saveName = (itemName.equals("")) ? res.getString("nome") : itemName;
+                    String saveDescription = (itemDescription.equals("")) ? res.getString("descricao") : itemDescription;
+                    String saveLocalization = (itemLocalization.equals("")) ? res.getString("descricao") : itemLocalization;
 
                     // Atualiza registro no banco de dados.
-                    sql = "UPDATE " + DBTABLE + " SET name = ?, description = ?, localization = ? WHERE id = ?";
+                    sql = "UPDATE " + DBTABLE + " SET nome = ?, descricao = ?, localizacao = ? WHERE id = ?";
                     pstm = conn.prepareStatement(sql);
                     pstm.setString(1, saveName);
                     pstm.setString(2, saveDescription);
-                    pstm.setInt(3, id);
+                    pstm.setString(3, saveLocalization);
+                    pstm.setInt(4, id);
                     if (pstm.executeUpdate() == 1) {
 
                         // Se o registro foi criado.

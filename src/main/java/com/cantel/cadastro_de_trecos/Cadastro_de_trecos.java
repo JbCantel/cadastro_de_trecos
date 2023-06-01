@@ -6,6 +6,7 @@ import COM.CANTEL.cadastro_de_trecos.crud.Create;
 import COM.CANTEL.cadastro_de_trecos.crud.Delete;
 import COM.CANTEL.cadastro_de_trecos.crud.Search;
 import COM.CANTEL.cadastro_de_trecos.crud.Update;
+import com.cantel.cadastro_de_trecos.crud.ToggleStatus;
 
 public class Cadastro_de_trecos extends AppSetup {
 
@@ -25,6 +26,7 @@ public class Cadastro_de_trecos extends AppSetup {
         System.out.println("\t[4] Editar");
         System.out.println("\t[5] Apagar");
         System.out.println("\t[6] Procurar");
+        System.out.println("\t[7] (Des)Bloquear");
         System.out.println("\t[0] Sair");
         System.out.println(appSep);
         System.out.print("Opção: ");
@@ -60,6 +62,10 @@ public class Cadastro_de_trecos extends AppSetup {
             case "6":
                 clearScreen();
                 Search.search();
+                break;
+                case "7":
+                clearScreen();
+                ToggleStatus.toggle();
                 break;
             default:
                 clearScreen();
