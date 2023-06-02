@@ -1,7 +1,7 @@
 com\cantel\cadastro_de_trecos\crud\Search.class
+com\cantel\cadastro_de_trecos\setup\AppSetup.class
 com\cantel\cadastro_de_trecos\Cadastro_de_trecos.class
 com\cantel\cadastro_de_trecos\crud\Create.class
-com\cantelcadastro_de_trecos\setup\AppSetup.class
 com\cantel\cadastro_de_trecos\crud\Update.class
 com\cantel\cadastro_de_trecos\db\DbConnection.class
 com\cantel\cadastro_de_trecos\Tools.class

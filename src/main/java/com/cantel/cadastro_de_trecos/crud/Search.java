@@ -35,7 +35,7 @@ public class Search extends AppSetup {
             // Se digitou uma string.
             try {
 
-                sql = "SELECT * FROM " + DBTABLE + " WHERE nome LIKE ? OR descricao LIKE ? OR descricao LIKE ? ORDER BY nome DESC";
+                sql = "SELECT * FROM " + DBTABLE + " WHERE status != '0' AND nome LIKE ? OR descricao LIKE ? OR descricao LIKE ? ORDER BY nome DESC";
                 conn = DbConnection.dbConnect();
                 pstm = conn.prepareStatement(sql);
                 pstm.setString(1, "%" + searchString + "%");
