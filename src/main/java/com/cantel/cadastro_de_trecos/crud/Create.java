@@ -40,7 +40,7 @@ public class Create extends AppSetup {
             if (keyboard.next().trim().toLowerCase().equals("s")) {
 
                 // Insere os dados na tabela usando PreparetedStatement.
-                sql = "INSERT INTO " + DBTABLE + " (nome, descricao, localizacao)VALUES (?, ?, ?)";
+                sql = "INSERT INTO " + DBTABLE + " (nome, descricao, localizacao) VALUES (?, ?, ?)";
                 conn = DbConnection.dbConnect();
                 pstm = conn.prepareStatement(sql);
                 pstm.setString(1, itemNome);
